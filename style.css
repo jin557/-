@@ -170,8 +170,7 @@ main {
     position: relative;
     height: 550px; /* ヒーローセクションの高さ */
     background-color: #000; /* 画像がない場合のフォールバック */
-    /* 背景画像はJavaScriptで設定 (style.cssに直接書き込む場合は以下のように記述) */
-    /* background: url('assets/hero-background.jpg') no-repeat center center/cover; */
+    /* 背景画像はJavaScriptで設定 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -311,6 +310,48 @@ main {
     margin-bottom: 0;
 }
 
+/* 構成員グリッド */
+.member-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.member-card {
+    background-color: #2a2a2a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-align: center;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    border-color: #f1fa8c;
+}
+
+.member-card h3 {
+    color: #f1fa8c;
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.member-card h3 i {
+    margin-right: 10px;
+    color: #e63946;
+}
+
+.member-card p {
+    font-size: 0.95em;
+    color: #bbb;
+    margin: 0 auto;
+    text-align: center; /* メンバー説明文を中央揃え */
+}
+
 /* 対応記録リスト */
 .record-list {
     list-style: none;
@@ -328,6 +369,11 @@ main {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: flex-start;
+    transition: background-color 0.3s ease;
+}
+
+.record-list li:hover {
+    background-color: #222;
 }
 
 .record-list li:last-child {
@@ -341,6 +387,7 @@ main {
     margin-right: 20px;
     width: 120px; /* 日付の幅を固定 */
     text-align: right;
+    font-size: 0.95em;
 }
 
 .record-list li p {
@@ -350,7 +397,7 @@ main {
     text-align: left; /* 記録内容は左揃え */
 }
 
-/* 特殊案件ファイルセクション */
+/* 特殊案件ファイル＆怪異データベースのボタン */
 .warning-text {
     color: #f1fa8c;
     font-weight: bold;
@@ -374,48 +421,15 @@ main {
     font-weight: bold;
     transition: background-color 0.3s ease;
     margin-top: 20px;
+    box-shadow: 0 3px 8px rgba(230, 57, 70, 0.3);
 }
 
 .btn-access:hover {
     background-color: #c9333f;
+    box-shadow: 0 5px 12px rgba(230, 57, 70, 0.4);
 }
 
-.hidden-content {
-    display: none; /* 初期状態では非表示 */
-    margin-top: 30px;
-    background-color: #2a2a2a;
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid #444;
-    box-shadow: inset 0 0 10px rgba(241, 250, 140, 0.2); /* 内側の影 */
-    text-align: left;
-}
-
-.hidden-content p {
-    color: #f1fa8c;
-    font-style: italic;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.hidden-content ul {
-    list-style: disc inside;
-    padding-left: 20px;
-    color: #ccc;
-}
-
-.hidden-content ul li a {
-    color: #7bdcb5; /* リンクの色 */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.hidden-content ul li a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
-/* 怪異データベース */
+/* 怪異データベースのコンテンツ */
 .database-list {
     list-style: none;
     padding: 0;
@@ -423,6 +437,8 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 50px;
+    /* JavaScriptで初期状態はdisplay: none;になる */
+    /* transition: opacity 0.5s ease; /* 表示時のアニメーション */
 }
 
 .database-list li {
@@ -485,18 +501,58 @@ main {
     margin-top: 20px;
 }
 
-/* 簡易お問い合わせフォーム (必要であればコメント解除して使用) */
-/*
+/* お問い合わせフォームのラッパー */
+.contact-form-wrapper {
+    max-width: 650px;
+    margin: 60px auto 0;
+    background-color: #1a1a1a;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    border: 1px solid #333;
+}
+
+.contact-form-wrapper h3 {
+    color: #e63946;
+    font-family: 'Cinzel', serif;
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.contact-form-wrapper h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 2px;
+    background-color: #f1fa8c;
+}
+
 .contact-form {
-    max-width: 600px;
-    margin: 40px auto 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    color: #ccc;
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
 .contact-form input[type="text"],
 .contact-form input[type="email"],
+.contact-form input[type="phone"],
 .contact-form textarea {
     background-color: #2a2a2a;
     border: 1px solid #444;
@@ -505,11 +561,13 @@ main {
     border-radius: 5px;
     font-size: 1em;
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form input[type="text"]::placeholder,
 .contact-form input[type="email"]::placeholder,
+.contact-form input[type="phone"]::placeholder,
 .contact-form textarea::placeholder {
     color: #888;
 }
@@ -531,17 +589,26 @@ main {
     cursor: pointer;
     font-size: 1.2em;
     font-weight: bold;
-    transition: background-color 0.3s ease;
-    align-self: center; // ボタンを中央揃え
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: center; /* ボタンを中央揃え */
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);
 }
 
 .btn-submit:hover {
     background-color: #c9333f;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(230, 57, 70, 0.5);
 }
 .btn-submit i {
     margin-left: 10px;
 }
-*/
+
+.form-note {
+    font-size: 0.9em;
+    color: #999;
+    text-align: center;
+    margin-top: 20px;
+}
 
 /* フッター */
 .main-footer {
@@ -579,6 +646,241 @@ main {
 
 .main-footer .social-links a:hover {
     color: #e63946;
+}
+
+/* ここからモーダルウィンドウのスタイル */
+.modal {
+    display: none; /* 初期状態では非表示 */
+    position: fixed; /* 固定位置 */
+    z-index: 2000; /* 最前面に表示 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* コンテンツが長い場合にスクロール可能に */
+    background-color: rgba(0, 0, 0, 0.8); /* 半透明の黒い背景 */
+    backdrop-filter: blur(5px); /* 背景を少しぼかす */
+    animation: fadeInModal 0.3s ease-out; /* フェードインアニメーション */
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 5% auto; /* 上部から少し下がった位置に表示 */
+    padding: 30px;
+    border: 1px solid #333;
+    width: 80%; /* 幅 */
+    max-width: 800px; /* 最大幅 */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: slideInModal 0.4s ease-out; /* スライドインアニメーション */
+}
+
+@keyframes slideInModal {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #e63946;
+    text-decoration: none;
+}
+
+.modal-header {
+    border-bottom: 2px solid #e63946;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.modal-header h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.2em;
+    color: #f1fa8c;
+    margin: 0;
+}
+
+.modal-header h3 i {
+    margin-right: 15px;
+    color: #e63946;
+}
+
+.modal-body h4 {
+    font-size: 1.5em;
+    color: #7bdcb5; /* 新しいアクセントカラー */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #444;
+    padding-bottom: 5px;
+}
+
+.modal-body h4 i {
+    margin-right: 10px;
+    color: #f1fa8c;
+}
+
+.modal-body p, .modal-body ul, .modal-body ol {
+    font-size: 1em;
+    color: #ccc;
+    line-height: 1.7;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+.modal-body ul, .modal-body ol {
+    margin-left: 20px;
+    padding-left: 0;
+    list-style-position: inside; /* リストマークを内側に */
+}
+.modal-body ul li {
+    margin-bottom: 5px;
+    text-indent: -1.5em; /* リストマークをインデント */
+    padding-left: 1.5em; /* 箇条書きを揃える */
+}
+.modal-body ol li {
+    margin-bottom: 5px;
+}
+.modal-body ol {
+    counter-reset: my-counter; /* カウンターをリセット */
+}
+.modal-body ol li::before {
+    counter-increment: my-counter; /* カウンターをインクリメント */
+    content: counter(my-counter) ". "; /* 番号を表示 */
+    color: #e63946; /* 番号の色 */
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.modal-body .call-to-action {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f1fa8c;
+    margin-top: 40px;
+    padding: 15px;
+    background-color: #222;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
+/* 対応業務の各項目に「詳細を見る」を追加 */
+.service-list li.service-item-trigger {
+    cursor: pointer; /* カーソルをポインターに */
+    position: relative;
+    padding-bottom: 40px; /* 詳細を見るボタンのスペース */
+}
+
+.service-list li .read-more {
+    display: block;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #7bdcb5; /* アクセントカラー */
+    font-weight: bold;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+.service-list li .read-more:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.service-list li .read-more i {
+    margin-left: 8px;
+    font-size: 0.8em;
+}
+
+/* secret_files / database content Wrapper */
+.secret-content-wrapper {
+    display: none; /* 初期は非表示 */
+    margin-top: 40px;
+    background-color: #0d0d0d; /* さらなる暗闇 */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(241, 250, 140, 0.1), 0 0 25px rgba(0, 0, 0, 0.7);
+    border: 2px solid #444;
+    animation: fadeInPage 1s ease-out;
+    text-align: left;
+}
+
+.secret-content-wrapper .secret-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.secret-content-wrapper .secret-header h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8em;
+    color: #e63946;
+    margin-bottom: 10px;
+}
+.secret-content-wrapper .secret-header p {
+    font-size: 1.1em;
+    color: #aaa;
+    margin-top: 5px;
+}
+.secret-content-wrapper .secret-file-list {
+    list-style: none;
+    padding: 0;
+}
+.secret-content-wrapper .secret-file-list li {
+    background-color: #222;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-left: 5px solid #f1fa8c;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+}
+.secret-content-wrapper .secret-file-list li:hover {
+    background-color: #2a2a2a;
+}
+.secret-content-wrapper .secret-file-list li a {
+    color: #7bdcb5;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: block;
+}
+.secret-content-wrapper .secret-file-list li a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+.secret-content-wrapper .secret-file-list li p {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+.secret-content-wrapper .back-to-main-link {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.1em;
+}
+.secret-content-wrapper .back-to-main-link a {
+    color: #e63946;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.secret-content-wrapper .back-to-main-link a:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 /* レスポンシブデザイン */
@@ -631,6 +933,7 @@ main {
     }
 
     .service-list,
+    .member-grid, /* 構成員グリッドもスマホで1列に */
     .database-list {
         grid-template-columns: 1fr; /* スマホでは1列表示 */
         gap: 20px;
@@ -649,6 +952,41 @@ main {
 
     .contact-info {
         font-size: 1em;
+    }
+
+    .contact-form-wrapper {
+        padding: 30px;
+    }
+
+    .contact-form-wrapper h3 {
+        font-size: 1.5em;
+    }
+
+    /* モーダルのレスポンシブ調整 */
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .modal-header h3 {
+        font-size: 1.8em;
+    }
+    .modal-body h4 {
+        font-size: 1.3em;
+    }
+    .modal-body p, .modal-body ul, .modal-body ol {
+        font-size: 0.9em;
+    }
+
+    /* 特殊案件ファイルコンテンツのスマホ対応 */
+    .secret-content-wrapper .secret-header h3 {
+        font-size: 2em;
+    }
+    .secret-content-wrapper .secret-header p {
+        font-size: 0.9em;
+    }
+    .secret-content-wrapper {
+        padding: 20px;
     }
 }
 
