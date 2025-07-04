@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封祓連（ふうしんれん）公式サイト - 静かに封じ、確実に祓う</title>
+    <meta name="description" content="封祓連は、日本各地の霊障・呪物・神域異常に対応する民間祓術師集団です。密やかに、確実に“それ”を封じます。">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <h1>封祓連（ふうしんれん）</h1>
+            <p class="tagline">静かに封じ、確実に祓う。闇に抗う者たちの集い。</p>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#about"><i class="fas fa-users"></i> 団体紹介</a></li>
+            <li><a href="#services"><i class="fas fa-hand-sparkles"></i> 対応業務</a></li>
+            <li><a href="#members"><i class="fas fa-mask"></i> 構成員</a></li>
+            <li><a href="#records"><i class="fas fa-book-open"></i> 対応記録</a></li>
+            <li><a href="#files"><i class="fas fa-folder-open"></i> 特殊案件ファイル</a></li>
+            <li><a href="#database"><i class="fas fa-database"></i> 怪異データベース</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> 依頼方法</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="hero-section" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-text">
+                <h2>見えざる脅威から、<br>秩序を守る。</h2>
+                <p>人知を超えた存在に、我らが封祓連が対峙する。</p>
+                <a href="#services" class="btn-cta">業務内容を見る <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <div class="container">
+                <h2 class="section-title">団体紹介 <span class="subtitle">— 理念と使命 —</span></h2>
+                <p>封祓連は、古より伝わる秘術と現代の知見を融合させ、**人々の日常を脅かす不可解な存在**から守るために結成された、唯一無二の民間祓術師集団です。</p>
+                <p>我々の活動は、あくまで社会の影に潜み、静かに、そして確実に霊障・呪物・神域の異常を**“封じ、祓う”**ことに徹します。単なる退魔ではなく、原因の究明と根本的な解決を目指し、見えざる闇の均衡を保つことが私たちの使命です。</p>
+            </div>
+        </section>
+
+        <section id="services" class="content-section dark-bg">
+            <div class="container">
+                <h2 class="section-title">対応業務 <span class="subtitle">— 専門性と多様性 —</span></h2>
+                <ul class="service-list">
+                    <li><i class="fas fa-home"></i> 個人宅・集合住宅における霊障調査・祓い<br><small>日常に潜む不可視の脅威を特定し、安全な空間を取り戻します。</small></li>
+                    <li><i class="fas fa-torii-gate"></i> 神社・廃寺などの結界再構築<br><small>古き聖域の力を回復させ、悪しき侵入を阻みます。</small></li>
+                    <li><i class="fas fa-box-open"></i> 呪物の隔離・浄化処理<br><small>危険な力を秘めた物品を回収し、無害化または厳重に管理します。</small></li>
+                    <li><i class="fas fa-crosshairs"></i> 怪異の発生源調査・封印<br><small>未曾有の事象に対し、その根源を断ち、拡散を防ぎます。</small></li>
+                    <li><i class="fas fa-comments"></i> 相談・アドバイス（初回無料）<br><small>漠然とした不安から具体的な現象まで、まずはお気軽にご相談ください。</small></li>
+                </ul>
+            </div>
+        </section>
+
+        </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 封祓連 - Fushinren. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-file-alt"></i> プライバシーポリシー</a>
+                <a href="#"><i class="fas fa-sitemap"></i> サイトマップ</a>
+            </div>
+            <div class="social-links">
+                </div>
+        </div>
+    </footer>
+
+    <script>
+        // スムーズスクロールのJavaScript
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 特殊案件ファイルへの簡易認証 (例)
+        document.getElementById('files').querySelector('a') /* もしリンクにする場合 */ || document.getElementById('files').addEventListener('click', function() {
+            const password = prompt("特殊案件ファイルにアクセスするには認証コードを入力してください:");
+            if (password === "fushinren2025") { // 仮のパスワード
+                alert("認証成功。閲覧権限があります。");
+                // 実際のファイルページへのリダイレクトやコンテンツ表示
+            } else {
+                alert("認証失敗。アクセスが拒否されました。");
+            }
+        });
+    </script>
+</body>
+</html>

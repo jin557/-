@@ -1,0 +1,672 @@
+/* 基本的なリセットと共通スタイル */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111; /* 深い黒の背景 */
+    color: #eee; /* 明るい文字色 */
+    font-family: 'Noto Serif JP', 'Yu Gothic', 'Meiryo', sans-serif; /* 和風フォントを優先 */
+    line-height: 1.8; /* 行間を広げて読みやすく */
+    -webkit-font-smoothing: antialiased; /* フォントのアンチエイリアシング */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1000px; /* コンテンツの最大幅 */
+    margin: 0 auto; /* 中央揃え */
+    padding: 0 20px; /* 左右の余白 */
+}
+
+/* ヘッダー */
+.main-header {
+    background-color: #1a1a1a; /* ヘッダー背景色 */
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 2px solid #e63946; /* アクセントカラーのボーダー */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* 影で立体感を出す */
+}
+
+.site-logo { /* ロゴ画像を使用する場合のスタイル */
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.main-header h1 {
+    font-family: 'Cinzel', serif; /* 欧文フォントで神秘的な印象 */
+    font-size: 3em;
+    margin: 0;
+    color: #e63946; /* メインのアクセントカラー */
+    letter-spacing: 2px; /* 文字間隔を少し開ける */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* 文字に影 */
+}
+
+.main-header .tagline {
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: #bbb;
+    font-style: italic; /* キャッチフレーズを斜体にする */
+}
+
+/* ナビゲーション */
+.main-nav {
+    background-color: #222; /* ナビゲーション背景色 */
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky; /* スクロールしても追従 */
+    top: 0;
+    z-index: 1000; /* 最前面に表示 */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexboxで横並び */
+    justify-content: center;
+    flex-wrap: wrap; /* 小画面で折り返す */
+}
+
+.main-nav ul li {
+    margin: 5px 20px; /* 各メニュー項目の余白 */
+}
+
+.main-nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05em;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease; /* ホバー時の色変化アニメーション */
+}
+
+.main-nav ul li a i { /* アイコンのスタイル */
+    margin-right: 8px;
+    color: #f1fa8c; /* アイコンの色 */
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #fff;
+}
+
+.main-nav ul li a:hover i {
+    color: #e63946; /* ホバー時にアイコンの色も変更 */
+}
+
+.main-nav ul li a::after { /* ホバー時の下線アニメーション */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #e63946;
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* メインコンテンツセクション共通 */
+main {
+    padding: 50px 0; /* メインコンテンツ全体の上下パディング */
+}
+
+.content-section {
+    padding: 60px 0;
+    margin-bottom: 0; /* セクション間のマージンはパディングで調整 */
+    border-bottom: 1px dashed #333; /* 区切り線 */
+}
+
+.content-section:last-of-type {
+    border-bottom: none; /* 最後のセクションはボーダーなし */
+}
+
+/* 偶数番目のセクションの背景色 */
+.content-section:nth-of-type(odd) {
+    background-color: #1a1a1a;
+}
+
+/* 奇数番目のセクションの背景色 */
+.content-section:nth-of-type(even) {
+    background-color: #222;
+}
+
+/* セクションタイトル */
+.section-title {
+    color: #e63946; /* メインカラーを使用 */
+    font-family: 'Cinzel', serif; /* タイトルは欧文フォント */
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block; /* 下線の中央揃えのため */
+    padding-bottom: 10px;
+}
+
+.section-title::after { /* 下線 */
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #f1fa8c; /* アクセントカラー */
+}
+
+.section-title .subtitle {
+    display: block;
+    font-size: 0.6em;
+    color: #aaa;
+    margin-top: 5px;
+    font-family: 'Noto Serif JP', sans-serif; /* サブタイトルは和文フォント */
+    font-weight: 400;
+}
+
+/* ヒーローセクション */
+.hero-section {
+    position: relative;
+    height: 550px; /* ヒーローセクションの高さ */
+    background-color: #000; /* 画像がない場合のフォールバック */
+    /* 背景画像はJavaScriptで設定 (style.cssに直接書き込む場合は以下のように記述) */
+    /* background: url('assets/hero-background.jpg') no-repeat center center/cover; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    /* アニメーションを追加 */
+    animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.hero-overlay { /* オーバーレイでテキストの視認性を確保 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 半透明の黒 */
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+    /* テキストのアニメーション */
+    animation: slideInUp 1s ease-out 0.5s forwards;
+    opacity: 0; /* 初期状態では非表示 */
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.hero-text h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 3.8em;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    color: #f1fa8c; /* アクセントカラー */
+}
+
+.hero-text p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-cta {
+    display: inline-block;
+    background-color: #e63946;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4); /* 影にアクセントカラー */
+}
+
+.btn-cta:hover {
+    background-color: #c9333f;
+    transform: translateY(-3px); /* 少し上に移動 */
+}
+
+.btn-cta i {
+    margin-left: 10px;
+}
+
+/* コンテンツセクション内の段落 */
+.content-section p {
+    max-width: 800px;
+    margin: 0 auto 1.5em auto; /* 中央揃えと下マージン */
+    font-size: 1.05em;
+    text-align: justify; /* 両端揃え */
+    line-height: 1.9;
+}
+.content-section p strong {
+    color: #e63946; /* 強調文字の色 */
+}
+
+/* サービスリスト */
+.service-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* レスポンシブなグリッド */
+    gap: 30px;
+    text-align: center; /* 項目の内容を中央揃え */
+    margin-top: 50px;
+}
+
+.service-list li {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* アイコンとテキストを中央に */
+}
+
+.service-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    border-color: #e63946; /* ホバー時にボーダー色変更 */
+}
+
+.service-list li i {
+    font-size: 2.5em;
+    color: #f1fa8c; /* アイコンの色 */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.service-list li h3 {
+    color: #e63946;
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.service-list li p {
+    font-size: 0.95em;
+    color: #aaa;
+    text-align: center; /* サービス説明文を中央揃え */
+    margin-bottom: 0;
+}
+
+/* 対応記録リスト */
+.record-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 50px auto 0;
+}
+
+.record-list li {
+    background-color: #1a1a1a;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 5px solid #f1fa8c; /* アクセントカラーのボーダー */
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: flex-start;
+}
+
+.record-list li:last-child {
+    margin-bottom: 0;
+}
+
+.record-list .record-date {
+    font-weight: bold;
+    color: #e63946;
+    flex-shrink: 0; /* 日付が縮まないように */
+    margin-right: 20px;
+    width: 120px; /* 日付の幅を固定 */
+    text-align: right;
+}
+
+.record-list li p {
+    margin: 0;
+    font-size: 1em;
+    color: #ccc;
+    text-align: left; /* 記録内容は左揃え */
+}
+
+/* 特殊案件ファイルセクション */
+.warning-text {
+    color: #f1fa8c;
+    font-weight: bold;
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+
+.warning-text i {
+    margin-right: 10px;
+    color: #e63946;
+}
+
+.btn-access {
+    background-color: #e63946;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-access:hover {
+    background-color: #c9333f;
+}
+
+.hidden-content {
+    display: none; /* 初期状態では非表示 */
+    margin-top: 30px;
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    box-shadow: inset 0 0 10px rgba(241, 250, 140, 0.2); /* 内側の影 */
+    text-align: left;
+}
+
+.hidden-content p {
+    color: #f1fa8c;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.hidden-content ul {
+    list-style: disc inside;
+    padding-left: 20px;
+    color: #ccc;
+}
+
+.hidden-content ul li a {
+    color: #7bdcb5; /* リンクの色 */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.hidden-content ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* 怪異データベース */
+.database-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.database-list li {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid #f1fa8c; /* アクセントボーダー */
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.database-list li:hover {
+    transform: translateY(-5px);
+}
+
+.database-list li h3 {
+    color: #e63946;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.database-list li p {
+    font-size: 0.95em;
+    color: #aaa;
+    margin-bottom: 0;
+}
+
+/* 依頼方法セクション */
+.contact-info {
+    font-size: 1.1em;
+    margin-top: 30px;
+    text-align: center; /* 連絡先情報を中央揃え */
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #f1fa8c;
+}
+
+.contact-info a {
+    color: #7bdcb5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.contact-info a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.contact-note {
+    font-size: 0.9em;
+    color: #999;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* 簡易お問い合わせフォーム (必要であればコメント解除して使用) */
+/*
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #eee;
+    padding: 12px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form input[type="text"]::placeholder,
+.contact-form input[type="email"]::placeholder,
+.contact-form textarea::placeholder {
+    color: #888;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #e63946;
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.3);
+}
+
+.btn-submit {
+    background-color: #e63946;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    align-self: center; // ボタンを中央揃え
+}
+
+.btn-submit:hover {
+    background-color: #c9333f;
+}
+.btn-submit i {
+    margin-left: 10px;
+}
+*/
+
+/* フッター */
+.main-footer {
+    background-color: #1a1a1a;
+    color: #777;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 1px solid #333;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* 上部に影 */
+}
+
+.main-footer .footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.main-footer .footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.main-footer .footer-links {
+    margin-bottom: 10px;
+}
+
+.main-footer .social-links a {
+    font-size: 1.5em;
+    margin: 0 8px;
+    color: #f1fa8c;
+    transition: color 0.3s ease;
+}
+
+.main-footer .social-links a:hover {
+    color: #e63946;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2em;
+    }
+
+    .main-header .tagline {
+        font-size: 0.9em;
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* スマホでは縦並び */
+        align-items: center; /* 中央揃え */
+    }
+
+    .main-nav ul li {
+        margin: 8px 0; /* 縦並びの余白 */
+    }
+
+    .hero-section {
+        height: 400px; /* スマホでのヒーローセクションの高さ */
+    }
+
+    .hero-text h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-text p {
+        font-size: 1.2em;
+    }
+
+    .btn-cta {
+        padding: 12px 25px;
+        font-size: 1.1em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+    
+    .section-title .subtitle {
+        font-size: 0.5em;
+    }
+
+    .content-section p {
+        font-size: 1em;
+        text-align: left; /* スマホでは左揃えが読みやすい場合が多い */
+    }
+
+    .service-list,
+    .database-list {
+        grid-template-columns: 1fr; /* スマホでは1列表示 */
+        gap: 20px;
+    }
+
+    .record-list li {
+        flex-direction: column; /* 縦並びに変更 */
+        align-items: flex-start;
+    }
+
+    .record-list .record-date {
+        width: auto;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .contact-info {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header h1 {
+        font-size: 1.8em;
+    }
+
+    .hero-text h2 {
+        font-size: 2em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+
+    .btn-cta {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
