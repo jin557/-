@@ -5,24 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>封祓連（ふうしんれん）公式サイト - 静かに封じ、確実に祓う</title>
     <meta name="description" content="封祓連は、日本各地の霊障・呪物・神域異常に対応する民間祓術師集団です。密やかに、確実に“それ”を封じます。">
-    <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="main-header">
-        <div class="header-content">
+        <div class="header-content container">
             <h1>封祓連（ふうしんれん）</h1>
             <p class="tagline">静かに封じ、確実に祓う。闇に抗う者たちの集い。</p>
         </div>
     </header>
+    
     <nav class="main-nav">
-        <ul>
+        <ul class="container">
             <li><a href="#about"><i class="fas fa-users"></i> 団体紹介</a></li>
             <li><a href="#services"><i class="fas fa-hand-sparkles"></i> 対応業務</a></li>
             <li><a href="#members"><i class="fas fa-mask"></i> 構成員</a></li>
             <li><a href="#records"><i class="fas fa-book-open"></i> 対応記録</a></li>
-            <li><a href="#files"><i class="fas fa-folder-open"></i> 特殊案件ファイル</a></li>
+            <li><a href="#files" class="auth-required-link"><i class="fas fa-folder-open"></i> 特殊案件ファイル</a></li>
             <li><a href="#database"><i class="fas fa-database"></i> 怪異データベース</a></li>
             <li><a href="#contact"><i class="fas fa-envelope"></i> 依頼方法</a></li>
         </ul>
@@ -32,7 +36,7 @@
         <section id="hero-section" class="hero-section">
             <div class="hero-overlay"></div>
             <div class="hero-text">
-                <h2>見えざる脅威から、<br>秩序を守る。</h2>
+                <h2>見えざる脅威から、秩序を守る。</h2>
                 <p>人知を超えた存在に、我らが封祓連が対峙する。</p>
                 <a href="#services" class="btn-cta">業務内容を見る <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -50,16 +54,203 @@
             <div class="container">
                 <h2 class="section-title">対応業務 <span class="subtitle">— 専門性と多様性 —</span></h2>
                 <ul class="service-list">
-                    <li><i class="fas fa-home"></i> 個人宅・集合住宅における霊障調査・祓い<br><small>日常に潜む不可視の脅威を特定し、安全な空間を取り戻します。</small></li>
-                    <li><i class="fas fa-torii-gate"></i> 神社・廃寺などの結界再構築<br><small>古き聖域の力を回復させ、悪しき侵入を阻みます。</small></li>
-                    <li><i class="fas fa-box-open"></i> 呪物の隔離・浄化処理<br><small>危険な力を秘めた物品を回収し、無害化または厳重に管理します。</small></li>
-                    <li><i class="fas fa-crosshairs"></i> 怪異の発生源調査・封印<br><small>未曾有の事象に対し、その根源を断ち、拡散を防ぎます。</small></li>
-                    <li><i class="fas fa-comments"></i> 相談・アドバイス（初回無料）<br><small>漠然とした不安から具体的な現象まで、まずはお気軽にご相談ください。</small></li>
+                    <li class="service-item-trigger" data-modal-target="modal-reisho">
+                        <i class="fas fa-home"></i>
+                        <h3>個人宅・集合住宅における霊障調査・祓い</h3>
+                        <p>日常に潜む不可視の脅威を特定し、安全な空間を取り戻します。</p>
+                        <span class="read-more">詳細を見る <i class="fas fa-arrow-right"></i></span>
+                    </li>
+                    <li class="service-item-trigger" data-modal-target="modal-kekkai">
+                        <i class="fas fa-torii-gate"></i>
+                        <h3>神社・廃寺などの結界再構築</h3>
+                        <p>古き聖域の力を回復させ、悪しき侵入を阻みます。</p>
+                        <span class="read-more">詳細を見る <i class="fas fa-arrow-right"></i></span>
+                    </li>
+                    <li class="service-item-trigger" data-modal-target="modal-jebustu">
+                        <i class="fas fa-box-open"></i>
+                        <h3>呪物の隔離・浄化処理</h3>
+                        <p>危険な力を秘めた物品を回収し、無害化または厳重に管理します。</p>
+                        <span class="read-more">詳細を見る <i class="fas fa-arrow-right"></i></span>
+                    </li>
+                    <li class="service-item-trigger" data-modal-target="modal-kaiigen">
+                        <i class="fas fa-crosshairs"></i>
+                        <h3>怪異の発生源調査・封印</h3>
+                        <p>未曾有の事象に対し、その根源を断ち、拡散を防ぎます。</p>
+                        <span class="read-more">詳細を見る <i class="fas fa-arrow-right"></i></span>
+                    </li>
+                    <li class="service-item-trigger" data-modal-target="modal-soudan">
+                        <i class="fas fa-comments"></i>
+                        <h3>相談・アドバイス（初回無料）</h3>
+                        <p>漠然とした不安から具体的な現象まで、まずはお気軽にご相談ください。</p>
+                        <span class="read-more">詳細を見る <i class="fas fa-arrow-right"></i></span>
+                    </li>
                 </ul>
             </div>
         </section>
 
-        </main>
+        <section id="members" class="content-section">
+            <div class="container">
+                <h2 class="section-title">構成員 <span class="subtitle">— 秘匿された知識と技術 —</span></h2>
+                <p>封祓連は、日本各地より集いし、選ばれた**祓術師、神職経験者、陰陽道研究者**などで構成されています。</p>
+                <p>構成員には実名を出さない者も多く、その活動は匿名を原則とします。それぞれの専門分野と深い知識・技術を持ち寄り、見えざる脅威に対し連携して対応にあたります。彼らの存在こそが、封祓連の揺るぎない力です。</p>
+
+                <div class="member-grid">
+                    <div class="member-card">
+                        <h3><i class="fas fa-user-secret"></i> 宗家直系 祓術師</h3>
+                        <p>古来より伝わる封祓の秘術を受け継ぐ、連の中心的存在。強力な霊力を持ち、高難度の案件を統括する。</p>
+                    </div>
+                    <div class="member-card">
+                        <h3><i class="fas fa-hands-helping"></i> 結界師 / 鑑定士</h3>
+                        <p>土地や空間の霊的エネルギーを読み解き、結界の構築・修復を専門とする。呪物の鑑定にも長ける。</p>
+                    </div>
+                    <div class="member-card">
+                        <h3><i class="fas fa-microscope"></i> 怪異研究者 / 資料解析</h3>
+                        <p>怪異の発生メカニズムや歴史的背景を学術的に研究。膨大な古文書や現代の情報を解析し、対策を立案する。</p>
+                    </div>
+                    <div class="member-card">
+                        <h3><i class="fas fa-shield-alt"></i> 護衛 / 現場支援</h3>
+                        <p>霊的危険区域での祓術師の安全を確保し、物理的な支援を行う。特殊な訓練を受けた実戦部隊。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="records" class="content-section dark-bg">
+            <div class="container">
+                <h2 class="section-title">対応記録 <span class="subtitle">— 解決への軌跡 —</span></h2>
+                <ul class="record-list">
+                    <li>
+                        <span class="record-date">2024年7月15日</span>
+                        <p>東京都世田谷区の集合住宅にて、住人に憑依した低級霊を祓い、心身の平安を取り戻した。原因は隣接する空き家の不法投棄物から発生した穢れと判明。</p>
+                    </li>
+                    <li>
+                        <span class="record-date">2024年12月3日</span>
+                        <p>京都府の山間部に位置する廃神社にて、荒廃により弱体化した結界を再構築。周辺地域で報告されていた原因不明の体調不良が沈静化した。</p>
+                    </li>
+                    <li>
+                        <span class="record-date">2025年3月22日</span>
+                        <p>呪詛性の高い「藁人形」を回収・隔離。持ち主への影響を最小限に抑え、呪詛の発生源を特定し、その力を完全に封印した。</p>
+                    </li>
+                    <li>
+                        <span class="record-date">2025年5月10日</span>
+                        <p>九州地方の山間部にて発生した、特定の音に反応して出現する新たな形式の怪異の初動調査を実施。音源の特定と封印に成功し、被害の拡大を防いだ。</p>
+                    </li>
+                    <li>
+                        <span class="record-date">2025年6月28日</span>
+                        <p>大阪府岸和田市の古い民家で発生した、特定の時間になると家具が移動するポルターガイスト現象を調査。地縛霊の残留思念が原因と特定し、適切な供養により現象は収束した。</p>
+                    </li>
+                    <li>
+                        <span class="record-date">その他</span>
+                        <p>非公開案件多数。全ての記録は厳重に保管されています。</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="files" class="content-section">
+            <div class="container">
+                <h2 class="section-title">特殊案件ファイル <span class="subtitle">— 深淵に触れる記録 —</span></h2>
+                <p>閲覧には認証が必要です。封祓連がこれまで対応した中でも、特に危険度が高く、世に知られてはならない極秘の案件について詳細な記録を保管しています。</p>
+                <p class="warning-text"><i class="fas fa-exclamation-triangle"></i> 不正なアクセスは固く禁じられています。</p>
+                <button class="btn-access auth-popup-btn" data-target="secret-files-content" data-password="fushinren2025">アクセスを試みる</button>
+                
+                <div id="secret-files-content" class="secret-content-wrapper">
+                    <div class="secret-header">
+                        <h3><i class="fas fa-lock"></i> 特殊案件ファイル</h3>
+                        <p>機密アクセス認証済</p>
+                        <p>ここに、封祓連の最も機密性の高い記録が保管されています。これらの情報は、ごく一部の限られた構成員のみが閲覧を許されており、その内容は、時に人類の理解を超えた深淵に触れるものです。</p>
+                        <p class="warning-text"><i class="fas fa-exclamation-triangle"></i> 厳重なる監視下にあります。</p>
+                    </div>
+
+                    <ul class="secret-file-list">
+                        <li>
+                            <a href="#"><i class="fas fa-file-contract"></i> 事案報告書：██県██村における████████の封印記録</a>
+                            <p>20XX年██月██日発生。████████の異常現象に対し、宗家直系祓術師が介入し、その影響を完全に遮断。████████の再発防止のため、████████に新たな結界を構築した。</p>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-box"></i> 禁忌の██████回収記録：██山脈████████の地下施設より</a>
+                            <p>20XX年██月██日、██山脈の地下深くから発見された禁忌の██████を回収。その影響下にあった████████は全て無力化され、██████は連の厳重な管理下に置かれた。</p>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-lightbulb"></i> ████████に関する考察：████████の████████の████████</a>
+                            <p>古代██████の文献より発見された「████████」に関する████████の理論を詳述。████████現象との関連性について、新たな仮説を提唱する。</p>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-user-secret"></i> 構成員████による緊急報告：████████の覚醒兆候</a>
+                            <p>20XX年██月██日、████████において、封印されていた████████の覚醒兆候が確認された。連は最高警戒レベルを発令し、████████部隊を緊急派遣した。</p>
+                        </li>
+                    </ul>
+
+                    <div class="back-to-main-link">
+                        <a href="#files" class="close-secret-content"><i class="fas fa-arrow-left"></i> 特殊案件ファイルを閉じる</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="database" class="content-section dark-bg">
+            <div class="container">
+                <h2 class="section-title">怪異データベース <span class="subtitle">— 未知への備え —</span></h2>
+                <p>全国で確認された霊的存在、怪異現象、呪物などの簡易情報をまとめています。これは一般への注意喚起と、封祓連内部での情報共有を目的としており、随時更新されます。</p>
+                <button class="btn-access auth-popup-btn" data-target="database-content" data-password="kaiidatabase2025">データベースを閲覧</button>
+                <ul class="database-list" id="database-content">
+                    <li>
+                        <h3>「三つ目の老婆」</h3>
+                        <p>東北地方で発見された、特定の場所を凝視する視線型の怪異。対象に精神的な疲弊をもたらす。</p>
+                    </li>
+                    <li>
+                        <h3>「赤い音」</h3>
+                        <p>特定の空き家で夜中にのみ聞こえる不可聴音。聞いた者に幻覚や錯乱を引き起こす。</p>
+                    </li>
+                    <li>
+                        <h3>「逆さ鳥居」</h3>
+                        <p>山中の廃神社に出現する、上下逆さまの鳥居。踏み入れた者は方向感覚を失い、異界へと誘われる。</p>
+                    </li>
+                    <li>
+                        <h3>「手招きの影」</h3>
+                        <p>水辺に現れる人影。手招きに応じた者は必ず行方不明となる。報告多数。</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="container">
+                <h2 class="section-title">依頼方法 <span class="subtitle">— 密やかなる解決へ —</span></h2>
+                <p>ご依頼・ご相談は、以下の連絡先までお願いいたします。初回相談は無料です。どのような些細なことでも構いません、お困りの際はご遠慮なくご連絡ください。</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> メール: <a href="mailto:contact@fushinren.jp">contact@fushinren.jp</a></p>
+                    <p><i class="fas fa-share-alt"></i> 専用フォーム: <a href="#contact-form-section" class="scroll-to-form">こちらからご入力ください</a></p>
+                    <p><i class="fas fa-clock"></i> 受付時間: 10:00〜22:00（土日祝も対応）</p>
+                    <p class="contact-note">※お問い合わせ内容によっては、ご返答にお時間をいただく場合がございます。</p>
+                </div>
+                
+                <div class="contact-form-wrapper" id="contact-form-section">
+                    <h3>お問い合わせフォーム</h3>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">お名前（匿名可）</label>
+                            <input type="text" id="name" placeholder="お名前をご入力ください" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス</label>
+                            <input type="email" id="email" placeholder="ご連絡可能なメールアドレス" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">件名</label>
+                            <input type="text" id="subject" placeholder="例：霊障に関する相談、結界について" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容</label>
+                            <textarea id="message" placeholder="具体的な状況やご要望を詳細にご記入ください。" rows="7" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">送信する <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <p class="form-note">※ご記入いただいた内容は、封祓連の活動目的にのみ利用されます。</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="main-footer">
         <div class="container">
@@ -68,31 +259,269 @@
                 <a href="#"><i class="fas fa-file-alt"></i> プライバシーポリシー</a>
                 <a href="#"><i class="fas fa-sitemap"></i> サイトマップ</a>
             </div>
-            <div class="social-links">
-                </div>
-        </div>
+            </div>
     </footer>
 
+    <div id="modal-reisho" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+                <h3><i class="fas fa-home"></i> 個人宅・集合住宅における霊障調査・祓い</h3>
+            </div>
+            <div class="modal-body">
+                <h4><i class="fas fa-info-circle"></i> 業務概要</h4>
+                <p>日常空間で感じる不可解な気配、体調不良、悪夢、金縛りなど、霊的な要因による障がいを調査し、適切な祓術によって解消します。</p>
+                <p>私たちは、住まいのエネルギーの流れを読み解き、霊障の根本原因を特定。ただ祓うだけでなく、再発防止のためのアドバイスや簡易結界の設置も行います。</p>
+                <h4><i class="fas fa-tools"></i> 実施手順</h4>
+                <ol>
+                    <li>ご相談・初期ヒアリング（オンラインまたは電話）</li>
+                    <li>現地調査（霊障の種類、強さ、原因の特定）</li>
+                    <li>適切な祓術の提案とお見積もり</li>
+                    <li>祓術の実施（浄化、鎮魂、封印など）</li>
+                    <li>再発防止のためのアドバイス・簡易結界設置</li>
+                    <li>アフターフォロー</li>
+                </ol>
+                <h4><i class="fas fa-exclamation-circle"></i> こんな時にご相談ください</h4>
+                <ul>
+                    <li>引っ越し先で原因不明の体調不良が続く</li>
+                    <li>特定の場所に行くと、寒気や重苦しさを感じる</li>
+                    <li>夜中に不可解な音や声を聞く</li>
+                    <li>家族の間で不和が続く、病気がちである</li>
+                    <li>以前からある土地や建物に不安を感じる</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-kekkai" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+                <h3><i class="fas fa-torii-gate"></i> 神社・廃寺などの結界再構築</h3>
+            </div>
+            <div class="modal-body">
+                <h4><i class="fas fa-info-circle"></i> 業務概要</h4>
+                <p>古くから聖地とされてきた神社、寺院、またはかつての聖域が、荒廃や人の手によって結界の力が弱まり、悪しきものが侵入する事例が増えています。</p>
+                <p>封祓連は、土地の歴史と霊脈を読み解き、古伝の結界術を用いて弱体化した結界を修復・再構築します。これにより、地域の守護と平和を回復させます。</p>
+                <h4><i class="fas fa-tools"></i> 実施手順</h4>
+                <ol>
+                    <li>土地の霊的調査・歴史的背景の検証</li>
+                    <li>既存結界の破損状況と霊的汚染度の診断</li>
+                    <li>結界再構築の計画立案</li>
+                    <li>儀式と術を用いた結界の修復・強化</li>
+                    <li>長期的な維持管理に関する助言</li>
+                </ol>
+                <h4><i class="fas fa-exclamation-circle"></i> こんな時にご相談ください</h4>
+                <ul>
+                    <li>管理している神社や寺院の敷地内で不審な現象が頻発する</li>
+                    <li>古くからある聖域が荒れ果て、周辺住民への悪影響が懸念される</li>
+                    <li>特定の場所の雰囲気が一変し、人々が近づかなくなった</li>
+                    <li>地域の守り神の力が弱まっていると感じる</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-jebustu" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+                <h3><i class="fas fa-box-open"></i> 呪物の隔離・浄化処理</h3>
+            </div>
+            <div class="modal-body">
+                <h4><i class="fas fa-info-circle"></i> 業務概要</h4>
+                <p>人々の怨念や強い思念が宿り、負のエネルギーを発する「呪物」は、放置すると周囲に甚大な被害を及ぼす可能性があります。</p>
+                <p>封祓連は、専門の技術と知識をもって呪物を安全に回収し、その力を無力化するための浄化処理や、厳重な隔離・封印を行います。また、呪物が生み出された背景の調査も可能です。</p>
+                <h4><i class="fas fa-tools"></i> 実施手順</h4>
+                <ol>
+                    <li>呪物の鑑定・危険度評価</li>
+                    <li>安全な回収手順の確立と実施</li>
+                    <li>専用施設での浄化儀式または封印処理</li>
+                    <li>呪物の保管または適切な処分</li>
+                    <li>関連する霊的影響の調査と除去</li>
+                </ol>
+                <h4><i class="fas fa-exclamation-circle"></i> こんな時にご相談ください</h4>
+                <ul>
+                    <li>所有する物品から不吉な気配を感じる、悪夢を見るようになった</li>
+                    <li>特定の物品の周りで不審な現象が起きる</li>
+                    <li>曰く付きの物品を偶然手に入れてしまい、処分に困っている</li>
+                    <li>人から贈られたものが原因で不幸が続くように感じる</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-kaiigen" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+                <h3><i class="fas fa-crosshairs"></i> 怪異の発生源調査・封印</h3>
+            </div>
+            <div class="modal-body">
+                <h4><i class="fas fa-info-circle"></i> 業務概要</h4>
+                <p>人知を超えた未曾有の怪異や現象が発生した場合、その発生源を特定し、これ以上の被害拡大を防ぐための封印作業を行います。</p>
+                <p>迅速な現地調査と情報収集により、怪異の性質と行動パターンを分析。最も効果的な手段で、その存在をこの世から隔絶するか、力を無力化します。</p>
+                <h4><i class="fas fa-tools"></i> 実施手順</h4>
+                <ol>
+                    <li>怪異発生に関する情報収集と初期分析</li>
+                    <li>現場への専門チーム派遣と詳細調査</li>
+                    <li>怪異の性質・発生源・影響範囲の特定</li>
+                    <li>封印・無力化のための作戦立案</li>
+                    <li>祓術・結界術を用いた封印作業の実施</li>
+                    <li>周辺地域の安全確認と情報秘匿</li>
+                </ol>
+                <h4><i class="fas fa-exclamation-circle"></i> こんな時にご相談ください</h4>
+                <ul>
+                    <li>地域で原因不明の集団幻覚や錯乱が発生している</li>
+                    <li>特定の場所で物理法則を無視した現象が繰り返し起きる</li>
+                    <li>未知の存在が目撃され、人々が恐怖を感じている</li>
+                    <li>従来の祓術では対応できないと判断された未解明の事象</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-soudan" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-header">
+                <h3><i class="fas fa-comments"></i> 相談・アドバイス（初回無料）</h3>
+            </div>
+            <div class="modal-body">
+                <h4><i class="fas fa-info-circle"></i> 業務概要</h4>
+                <p>「もしかして霊的なことかも…」「どこに相談すれば良いか分からない」といった漠然とした不安や、具体的な霊障の兆候を感じた際に、お気軽にご利用いただける初回無料の相談サービスです。</p>
+                <p>専門の構成員が丁寧にお話を伺い、状況を整理し、それが霊的な事象であるか、そうであるならばどのような対応が必要か、専門的な見地からアドバイスを提供します。</p>
+                <h4><i class="fas fa-tools"></i> 実施手順</h4>
+                <ol>
+                    <li>専用フォームまたはメールにてご相談内容を送信</li>
+                    <li>担当者よりご連絡、ヒアリングの日程調整</li>
+                    <li>オンラインまたは電話にて詳細なヒアリング（約30分）</li>
+                    <li>専門的な見地からのアドバイスと今後の対応提案</li>
+                    <li>必要であれば、正式な調査・祓術依頼への案内</li>
+                </ol>
+                <h4><i class="fas fa-exclamation-circle"></i> こんな時にご相談ください</h4>
+                <ul>
+                    <li>特定の夢を繰り返し見るようになった</li>
+                    <li>動物が異常に怯える場所がある</li>
+                    <li>理由もなく気分が落ち込んだり、不眠が続く</li>
+                    <li>原因不明のものが壊れたり、物が移動したりする</li>
+                    <li>霊感があると感じるが、どうすればいいか分からない</li>
+                </ul>
+                <p class="call-to-action">まずはお気軽にご相談ください。専門の構成員があなたの不安に寄り添います。</p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // スムーズスクロールのJavaScript
-        document.querySelectorAll('nav a').forEach(anchor => {
+        // スムーズスクロール
+        document.querySelectorAll('nav a[href^="#"], .scroll-to-form').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - (document.querySelector('.main-nav').offsetHeight),
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
-        // 特殊案件ファイルへの簡易認証 (例)
-        document.getElementById('files').querySelector('a') /* もしリンクにする場合 */ || document.getElementById('files').addEventListener('click', function() {
-            const password = prompt("特殊案件ファイルにアクセスするには認証コードを入力してください:");
-            if (password === "fushinren2025") { // 仮のパスワード
-                alert("認証成功。閲覧権限があります。");
-                // 実際のファイルページへのリダイレクトやコンテンツ表示
-            } else {
-                alert("認証失敗。アクセスが拒否されました。");
+        // パスワード認証ポップアップ (特殊案件ファイルと怪異データベース用)
+        document.querySelectorAll('.auth-popup-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const correctPassword = this.dataset.password; // data-passwordから正しいパスワードを取得
+                const targetContentId = this.dataset.target; // data-targetから表示するコンテンツのIDを取得
+
+                const password = prompt("アクセスするには認証コードを入力してください:");
+
+                if (password === correctPassword) {
+                    alert("認証成功。アクセスを許可します。");
+                    const targetContent = document.getElementById(targetContentId);
+                    if (targetContent) {
+                        targetContent.style.display = 'block'; // または 'grid' (データベースの場合)
+                        this.style.display = 'none'; // ボタンを非表示に
+                        // スクロールして表示されたコンテンツの先頭に移動
+                        targetContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                } else {
+                    alert("認証失敗。アクセスが拒否されました。");
+                }
+            });
+        });
+
+        // 特殊案件ファイルの内容を閉じるボタン
+        document.querySelectorAll('.close-secret-content').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // リンクのデフォルト動作をキャンセル
+                const parentWrapper = this.closest('.secret-content-wrapper');
+                if (parentWrapper) {
+                    parentWrapper.style.display = 'none'; // コンテンツを非表示に
+                    // 対応するボタンを再表示
+                    const relatedButton = document.querySelector(`.auth-popup-btn[data-target="${parentWrapper.id}"]`);
+                    if (relatedButton) {
+                        relatedButton.style.display = 'inline-block';
+                    }
+                    // 元のセクションの先頭にスクロール
+                    document.getElementById('files').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+
+        // ページロード時にヒーローセクションの背景画像を動的に設定
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSection = document.getElementById('hero-section');
+            if (heroSection) {
+                // ここに実際の画像のパスを設定してください
+                heroSection.style.backgroundImage = "url('assets/hero-background.jpg')"; 
             }
+
+            // 特殊案件ファイルと怪異データベースのコンテンツをデフォルトで非表示にする
+            document.getElementById('secret-files-content').style.display = 'none';
+            document.getElementById('database-content').style.display = 'none';
+        });
+
+
+        // モーダル関連のJavaScript (対応業務の詳細)
+        const serviceItemTriggers = document.querySelectorAll('.service-item-trigger');
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close-button');
+
+        // 各サービス項目にクリックイベントを設定
+        serviceItemTriggers.forEach(item => {
+            item.addEventListener('click', () => {
+                const modalId = item.dataset.modalTarget;
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = 'block'; // モーダルを表示
+                    document.body.style.overflow = 'hidden'; // 背景のスクロールを禁止
+                }
+            });
+        });
+
+        // 閉じるボタンにクリックイベントを設定
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal'); // 最も近い親のモーダル要素を取得
+                if (modal) {
+                    modal.style.display = 'none'; // モーダルを非表示
+                    document.body.style.overflow = ''; // 背景のスクロールを許可
+                }
+            });
+        });
+
+        // モーダルの背景クリックで閉じる
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) { // クリックしたのがモーダル背景自身だった場合
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
         });
     </script>
 </body>
